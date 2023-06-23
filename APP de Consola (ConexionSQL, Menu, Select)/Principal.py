@@ -33,7 +33,7 @@ def ejecutarOpcion(opcion):
     if opcion == 1:
         try:
             leyes= dao.listarLeyes()
-            if len(cursos) > 0:
+            if len(leyes) > 0:
                 funciones.listarLeyes(leyes)
             else:
                 print("No se encontraron leyes...")
@@ -52,7 +52,7 @@ def ejecutarOpcion(opcion):
             leyes = dao.listarLeyes()
             if len(leyes) > 0:
                 ley = funciones.pedirDatosActualizacion(leyes)
-                if curso:
+                if ley:
                     dao.actualizarLey(ley)
                 else:
                     print("Código de ley a actualizar no encontrado...\n")
