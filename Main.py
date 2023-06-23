@@ -8,9 +8,9 @@ def Menu():
         while(not opcionCorrecta):
             print("Seleccione una opcion")
             print("1.- Listar leyes")
-            print("2.- Registrar curso")
-            print("3.- Actualizar curso")
-            print("4.- Eliminar curso")
+            print("2.- Registrar ley")
+            print("3.- Actualizar ley")
+            print("4.- Eliminar ley")
             print("5.- Salir\n")
             opcion = int(input("Seleccione una opción: "))
         
@@ -35,39 +35,39 @@ def ejecutarOpcion(opcion):
             if len(Leyes) > 0:
                 funciones.listarleyes(Leyes)
             else:
-                print("No se encontraron cursos...")
+                print("No se encontraron leyes...")
         except:
             print("Ocurrió un error...")
     elif opcion == 2:
-        curso = function.pedirDatosRegistro()
+        ley = function.pedirDatosRegistro()
         try:
             conexionDB.registrarCurso(Leyes)
         except:
             print("Ocurrió un error...")
     elif opcion == 3:
         try:
-            cursos = conexionDB.listarleyes()
+            leyes = conexionDB.listarleyes()
             if len(Leyes) > 0:
-                curso = funciones.pedirDatosActualizacion(Leyes)
+                ley = funciones.pedirDatosActualizacion(Leyes)
                 if curso:
-                    conexionDB.actualizarCurso(Leyes)
+                    conexionDB.actualizarLey(Leyes)
                 else:
-                    print("Código de curso a actualizar no encontrado...\n")
+                    print("Código de ley a actualizar no encontrado...\n")
             else:
-                print("No se encontraron cursos...")
+                print("No se encontraron leyes...")
         except:
             print("Ocurrió un error...")
     elif opcion == 4:
         try:
-            cursos = conexionDB.listarCursos()
+            leyes = conexionDB.listarLeyes()
             if len(Leyes) > 0:
                 codigoEliminar = funciones.pedirDatosEliminacion(Leyes)
                 if not(codigoEliminar == ""):
-                    conexionDB.eliminarCurso(codigoEliminar)
+                    conexionDB.eliminarLey(codigoEliminar)
                 else:
-                    print("Código de curso no encontrado...\n")
+                    print("Código de ley no encontrado...\n")
             else:
-                print("No se encontraron cursos...")
+                print("No se encontraron leyes...")
         except:
             print("Ocurrió un error...")
     else:
