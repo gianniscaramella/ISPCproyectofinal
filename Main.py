@@ -41,7 +41,7 @@ def ejecutarOpcion(opcion):
     elif opcion == 2:
         ley = function.pedirDatosRegistro()
         try:
-            conexionDB.registrarCurso(Leyes)
+            conexionDB.registrarLey(Leyes)
         except:
             print("Ocurrió un error...")
     elif opcion == 3:
@@ -49,7 +49,7 @@ def ejecutarOpcion(opcion):
             leyes = conexionDB.listarleyes()
             if len(Leyes) > 0:
                 ley = funciones.pedirDatosActualizacion(Leyes)
-                if curso:
+                if ley:
                     conexionDB.actualizarLey(Leyes)
                 else:
                     print("Código de ley a actualizar no encontrado...\n")
