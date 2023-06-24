@@ -1,0 +1,39 @@
+#CONEXION
+def eliminarCurso(self,codigoLeyesEliminar) : 
+    if self.conexion.is_connected() :
+        try :
+            leyes = self.conexion.leyes()
+            sql = "DELETE FROM curso WHERE codigo = {0}"
+            leyes.execute(sql.format(codigoLeyesEliminar))
+            self.conexion.commit()
+            print("¡Ley eliminada!\n")
+        except KeyError as ex :
+            print("Error al intentar la conexion: {0}" .format(ex))
+
+#FUNCIONES
+def pedirDatosEliminacion(leyes) :
+    listarLeyes(leyes)
+    existecodigo= False
+    codigoEliminar= input("Ingrese el codigo de la ley a eliminar: ")
+    for cur in ley :
+        if cur(0) == codigoEliminar
+            existecodigo=True
+            break
+
+    if not existecodigo :
+        codigoEliminar=""
+
+    return codigoEliminar
+
+
+#PRINCIPAL
+try : 
+    leyes=dao. listaLeyes()
+    if len(leyes) > 0:
+        codigoEliminar = funciones.pedirDatosEliminacion(leyes)
+        if not(codigoEliminar == "") :
+            dao.eliminarLeyes(codigoEliminar)
+        else :
+            print("Codigo de ley no encontrado ")
+    else :
+        print("No se encontraron leyes ")
