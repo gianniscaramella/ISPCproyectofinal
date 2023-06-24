@@ -35,7 +35,7 @@ def pedirDatosRegistro():
     return ley
 
 def pedirDatosActualizacion(leyes):
-    listarCursos(leyes)
+    listarLeyes(leyes)
     existeCodigo = False
     codigoEditar = input("Ingrese el código de ley a editar: ")
     for cur in leyes:
@@ -66,7 +66,7 @@ def pedirDatosActualizacion(leyes):
 
 
 def pedirDatosEliminacion(leyes):
-    listarCursos(leyes)
+    listarLeyes(leyes)
     existeCodigo = False
     codigoEliminar = input("Ingrese el código de ley a eliminar: ")
     for cur in leyes:
