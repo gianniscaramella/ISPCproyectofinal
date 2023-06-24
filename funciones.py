@@ -1,7 +1,7 @@
-def listarCursos(cursos):
-    print("\nCursos: \n")
+def listarLeyes(leyes):
+    print("\nLeyes: \n")
     contador = 1
-    for cur in cursos:
+    for cur in leyes:
         datos = "{0}. Código: {1} | Nombre: {2} ({3} créditos)"
         print(datos.format(contador, cur[0], cur[1], cur[2]))
         contador = contador + 1
@@ -31,14 +31,14 @@ def pedirDatosRegistro():
         else:
             print("Créditos incorrectos: Debe ser un número únicamente.")
 
-    curso = (codigo, nombre, creditos)
-    return curso
+    leyes = (codigo, nombre, creditos)
+    return ley
 
-def pedirDatosActualizacion(cursos):
-    listarCursos(cursos)
+def pedirDatosActualizacion(leyes):
+    listarCursos(leyes)
     existeCodigo = False
-    codigoEditar = input("Ingrese el código del curso a editar: ")
-    for cur in cursos:
+    codigoEditar = input("Ingrese el código de ley a editar: ")
+    for cur in leyes:
         if cur[0] == codigoEditar:
             existeCodigo = True
             break
@@ -58,18 +58,18 @@ def pedirDatosActualizacion(cursos):
             else:
                 print("Créditos incorrectos: Debe ser un número únicamente.")
 
-        curso = (codigoEditar, nombre, creditos)
+        ley = (codigoEditar, nombre, creditos)
     else:
-        curso = None
+        ley = None
 
-    return curso
+    return ley
 
 
-def pedirDatosEliminacion(cursos):
-    listarCursos(cursos)
+def pedirDatosEliminacion(leyes):
+    listarCursos(leyes)
     existeCodigo = False
-    codigoEliminar = input("Ingrese el código del curso a eliminar: ")
-    for cur in cursos:
+    codigoEliminar = input("Ingrese el código de ley a eliminar: ")
+    for cur in leyes:
         if cur[0] == codigoEliminar:
             existeCodigo = True
             break
